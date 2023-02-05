@@ -47,7 +47,3 @@ input:focus {
   display: flex;
   align-items: center;
 }
-
-.weather img {
-  transform: scale(2);
-}
