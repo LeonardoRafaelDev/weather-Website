@@ -15,7 +15,7 @@ async function getWeatherByLocation(city) {
 }
 
 function addWeatherToPage(data) {
-  const temp = Ktoc(data.main.temp);
+  const temp = kelvinToCelsius(data.main.temp);
 
   const weather = document.createElement("div");
   weather.classList.add("weather");
@@ -33,8 +33,8 @@ function addWeatherToPage(data) {
   main.appendChild(weather);
 }
 
-function Ktoc(K) {
-  return Math.floor(K - 273.15);
+function kelvinToCelsius(temperature) {
+  return Math.floor(temperature - 273.15);
 }
 
 form.addEventListener("submit", (e) => {
@@ -42,7 +42,5 @@ form.addEventListener("submit", (e) => {
 
   const city = search.value;
 
-  if (city) {
-    getWeatherByLocation(city);
-  }
+  if (city) getWeatherByLocation(city);
 });
